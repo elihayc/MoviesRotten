@@ -14,4 +14,5 @@
 @property (nonatomic, strong) NSString* lastName;
 @property (nonatomic, strong) NSString* facebookToken;
 @property (nonatomic, strong) NSMutableArray * favoriteMovies;
+
 @end
