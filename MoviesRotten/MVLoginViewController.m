@@ -7,6 +7,7 @@
 //
 
 #import "MVLoginViewController.h"
+#import "MVSplashViewController.h"
 #import "FacebookSdk/FacebookSDK.h"
 
 @interface MVLoginViewController () <FBLoginViewDelegate>
@@ -35,6 +36,7 @@
     {
         //[self presentedViewController]
         NSLog(@"connected");
+        
     }
     else
     {
@@ -58,12 +60,13 @@
 {
     self.fbName.text = user.name;
     self.profilePictureView.profileID = user.id;
-    NSLog(@"username: %@", user.name);
+    NSLog(@"loginViewFetchedUserInfo username: %@", user.name);
 }
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
 {
     NSLog(@"%@", @"login");
+    [self performSegueWithIdentifier: @"SegueToMain" sender: self];
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
@@ -76,4 +79,5 @@
 {
     NSLog(@"%@",@"error");
 }
+
 @end

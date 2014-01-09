@@ -11,10 +11,39 @@
 
 @implementation MVAppDelegate
 
+- (void)showSplashScreen
+{
+    
+    UIImage *splashImage = [UIImage imageNamed:@"Default.png"];
+    UIImageView *splashImageView = [[UIImageView alloc] initWithImage:splashImage];
+    [self.window.rootViewController.view addSubview:splashImageView];
+    [self.window.rootViewController.view bringSubviewToFront:splashImageView];
+    [UIView animateWithDuration:.5f
+                          delay:2.0f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         splashImageView.alpha = .0f;
+                         CGFloat x = -60.0f;
+                         CGFloat y = -120.0f;
+                         splashImageView.frame = CGRectMake(x,
+                                                            y,
+                                                            splashImageView.frame.size.width-2*x,
+                                                            splashImageView.frame.size.height-2*y);
+                         /*splashImageView.frame = CGRectMake(splashImageView.frame.size.width / 2,
+                          splashImageView.frame.size.height / 2,
+                          0,
+                          0);*/
+                     } completion:^(BOOL finished){
+                         if (finished) {
+                             [splashImageView removeFromSuperview];
+                         }
+                     }];
+
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //[FBLoginView class];
-    //[[MVAppData sharedInstance] faceBookMgr] setup
+    [self showSplashScreen];
     return YES;
 }
 							

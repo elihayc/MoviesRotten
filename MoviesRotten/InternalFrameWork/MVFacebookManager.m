@@ -17,13 +17,4 @@
     return FBSession.activeSession.isOpen;
 }
 
-
-
-- (void)sessionStateChanged:(FBSession *)session
-                      state:(FBSessionState) state
-                      error:(NSError *)error
-{
-    NSLog(@"%@", @"FBsessionStateChanged");
-}
-
 @end

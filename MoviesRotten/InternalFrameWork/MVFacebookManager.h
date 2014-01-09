@@ -12,5 +12,4 @@
 @interface MVFacebookManager : NSObject 
 - (BOOL)IsUserConnected;
 
-- (void)SetUpConnection;
 @end

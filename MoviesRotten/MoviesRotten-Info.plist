@@ -49,6 +49,8 @@
 	<string>1388019971455075</string>
 	<key>FacebookDisplayName</key>
 	<string>MyMovieApp</string>
+	<key>UILaunchImageFile</key>
+	<string>Default</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
