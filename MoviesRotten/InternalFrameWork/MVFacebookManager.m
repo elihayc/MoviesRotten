@@ -14,7 +14,7 @@
 
 - (BOOL)IsUserConnected
 {
-    return FBSession.activeSession.isOpen;
+    return true;//FBSession.activeSession.isOpen;
 }
 
 @end

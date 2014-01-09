@@ -13,7 +13,6 @@
 
 - (void)showSplashScreen
 {
-    
     UIImage *splashImage = [UIImage imageNamed:@"Default.png"];
     UIImageView *splashImageView = [[UIImageView alloc] initWithImage:splashImage];
     [self.window.rootViewController.view addSubview:splashImageView];
@@ -43,7 +42,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [self showSplashScreen];
+    // implemented for learning
+//    [self showSplashScreen];
     return YES;
 }
 							

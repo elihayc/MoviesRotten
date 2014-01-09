@@ -19,24 +19,13 @@
 
 @implementation MVLoginViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     MVAppData * appData = [MVAppData sharedInstance];
    
     if ([appData.faceBookMgr IsUserConnected])
     {
-        //[self presentedViewController]
         NSLog(@"connected");
-        
     }
     else
     {
@@ -78,6 +67,11 @@
 - (void)loginView:(FBLoginView *)loginView handleError:(NSError *)error
 {
     NSLog(@"%@",@"error");
+}
+
+- (IBAction)tstButtonClick:(id)sender
+{
+    [self performSegueWithIdentifier: @"SegueToMain" sender: self];
 }
 
 @end

@@ -9,30 +9,41 @@
 #import "MVSplashViewController.h"
 
 @interface MVSplashViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *backImage;
 
 @end
 
 @implementation MVSplashViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    self.backImage.image = [UIImage imageNamed:@"Default"];
 }
-
-- (void)didReceiveMemoryWarning
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+    
+    [super viewDidAppear:animated];
+    
+    [UIView animateWithDuration:2.5f
+                          delay:2.0f
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         self.view.alpha = .0f;
+                     } completion:^(BOOL finished){
+                         if (finished)
+                         {
+                             if ([[[MVAppData sharedInstance] faceBookMgr] IsUserConnected])
+                             {
+                                [self performSegueWithIdentifier:@"segueSplashToMain" sender:self];
+                             }
+                             else
+                             {
+                                 [self performSegueWithIdentifier:@"segueToLogin" sender:self];
+                             }
+                         }
+                     }];
 
+}
 @end
