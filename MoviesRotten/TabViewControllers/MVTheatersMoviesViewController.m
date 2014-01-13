@@ -18,8 +18,6 @@
 {
     [super viewDidLoad];
     
-    [self setupTableView:self.moviesTable];
-    
     [self.appData.rottenTomatoMgr loadTheatersMovies:self];
 }
 

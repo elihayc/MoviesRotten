@@ -16,14 +16,17 @@
 @implementation MVMovieListViewController
 NSString * const CELL_IDENTIFIER = @"MovieCell";
 
-- (void)setupTableView:(UITableView *)tableView
-{
-     [tableView registerNib:[self createMovieTableCellNib] forCellReuseIdentifier:CELL_IDENTIFIER];
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MVMovieTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER];
+    
+    if(cell == nil)
+    {
+        //not in viewdidLoad beacuse this class cannot access to tableview
+        [tableView registerNib:[self createMovieTableCellNib] forCellReuseIdentifier:CELL_IDENTIFIER];
+        
+         cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER];
+    }
     
     if (self.movies)
     {

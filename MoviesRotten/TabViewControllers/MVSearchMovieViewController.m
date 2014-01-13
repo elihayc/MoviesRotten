@@ -15,15 +15,6 @@
 
 @implementation MVSearchMovieViewController
 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    [self setupTableView:self.moviesTable];
-
-    [self.appData.rottenTomatoMgr searchMovie:@"kill bill" delegate:self];
-}
-
 - (void)operation:(RKObjectRequestOperation *)operation didCompleteWithData:(RKMappingResult *)data
 {
     self.movies = data.array;
@@ -37,4 +28,5 @@
     
     return YES;
 }
+
 @end
