@@ -7,32 +7,41 @@
 //
 
 #import "MVMovieListViewController.h"
+#import "MVMovieTableViewCell.h"
 
-@interface MVMovieListViewController ()
+@interface MVMovieListViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @end
 
 @implementation MVMovieListViewController
+NSString * const CELL_IDENTIFIER = @"MovieCell";
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)setupTableView:(UITableView *)tableView
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+     [tableView registerNib:[self createMovieTableCellNib] forCellReuseIdentifier:CELL_IDENTIFIER];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MVMovieTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER];
+    
+    if (self.movies)
+    {
+        MVMovie * movie = self.movies[indexPath.row];
+        [cell SetMovie:movie];
     }
-    return self;
+    return cell;
 }
 
-- (void)viewDidLoad
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    return self.movies.count;
 }
 
-- (void)didReceiveMemoryWarning
+- (UINib *)createMovieTableCellNib
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSString *nibIdentifier = @"MVMovieTableViewCell";
+    return [UINib nibWithNibName:nibIdentifier bundle:[NSBundle mainBundle]];
 }
 
 @end

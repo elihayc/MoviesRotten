@@ -10,7 +10,9 @@
 
 @implementation MVAppData
 
-+ (id)sharedInstance
+NSString * const USER_KEY = @"user";
+
++ (instancetype)sharedInstance
 {
     static MVAppData *sharedMyManager = nil;
     static dispatch_once_t onceToken;
@@ -20,15 +22,45 @@
     return sharedMyManager;
 }
 
-- (id)init
+- (instancetype)init
 {
-    self = self = [super init];
+    self = [super init];
     
     if (self)
     {
         self.faceBookMgr = [MVFacebookManager new];
+        self.rottenTomatoMgr = [MVRottenTomatoManager new];
+        [self loadLocalData];
     }
     return self;
 }
+
+- (void)loadLocalData
+{
+    self.user = [MVUser new];
+    
+    //deSerilize object from NSUserDefaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSData *archivedObject = [defaults objectForKey:USER_KEY];
+    MVUser * user = (MVUser *)[NSKeyedUnarchiver unarchiveObjectWithData:archivedObject];
+    
+    if (user) self.user = user;
+}
+
+- (void)saveUserWithFirstName:(NSString*)firstName
+                     lastName:(NSString*)lastName
+                    profileID:(NSString*)profileId
+{
+    self.user.firstName = firstName;
+    self.user.lastName = lastName;
+    self.user.faceBookProfileID = profileId;
+    
+    //Save Serilize object in NSUserDefaults
+    NSData *archivedObject = [NSKeyedArchiver archivedDataWithRootObject:self.user];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:archivedObject forKey:USER_KEY];
+    [defaults synchronize];
+}
+
 
 @end

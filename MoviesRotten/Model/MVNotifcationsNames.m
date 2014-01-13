@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Elihay Cohen Zedek. All rights reserved.
 //
 
-#import "MVNotifcations.h"
+#import "MVNotifcationsNames.h"
 
-@implementation MVNotifcations
-
+@implementation MVNotifcationsNames
+NSString * const FB_STATUS_CHANGED = @"fbStatusChanged";
 @end

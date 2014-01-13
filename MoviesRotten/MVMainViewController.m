@@ -7,7 +7,7 @@
 //
 
 #import "MVMainViewController.h"
-
+#import "MVLoginViewController.h"
 @interface MVMainViewController ()
 
 @end
@@ -26,13 +26,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    //TODO:handle FB session logout
+//    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+//    [center addObserver:self
+//               selector:@selector(facebookConnectionChanged:)
+//                   name:FB_STATUS_CHANGED
+//                 object:nil];
 }
 
-- (void)didReceiveMemoryWarning
+-(void)viewDidAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    //TODO:DELETE
+//    if (![[[MVAppData sharedInstance] faceBookMgr] isUserConnected])
+//    {
+//        UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+//        UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"loginScreen"];
+//        [self presentViewController:loginController animated:YES completion:nil];
+//    }
 }
+
+-(void)facebookConnectionChanged:(NSNotification *)notification
+{
+   
+}
+
+
 
 @end

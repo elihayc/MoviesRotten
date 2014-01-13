@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MVNotifcations : NSObject
-
+@interface MVNotifcationsNames : NSObject
+extern NSString * const FB_STATUS_CHANGED;
 @end

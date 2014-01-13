@@ -7,8 +7,7 @@
 //
 
 #import "MVLoginViewController.h"
-#import "MVSplashViewController.h"
-#import "FacebookSdk/FacebookSDK.h"
+#import "FacebookSDK/FacebookSDK.h"
 
 @interface MVLoginViewController () <FBLoginViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *fbName;
@@ -21,11 +20,11 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    MVAppData * appData = [MVAppData sharedInstance];
-   
-    if ([appData.faceBookMgr IsUserConnected])
+    if ([self.appData.faceBookMgr isUserConnected])
     {
         NSLog(@"connected");
+       //TODO:DELETE
+       // [self performSegueWithIdentifier: @"SegueToMain" sender: self];
     }
     else
     {
@@ -47,15 +46,26 @@
 
 - (void)loginViewFetchedUserInfo:(FBLoginView *)loginView user:(id<FBGraphUser>)user
 {
+    //TODO: DELETE
     self.fbName.text = user.name;
     self.profilePictureView.profileID = user.id;
+    
+    [[MVAppData sharedInstance] saveUserWithFirstName:user.first_name
+                                             lastName:user.last_name
+                                            profileID:user.id];
+    
     NSLog(@"loginViewFetchedUserInfo username: %@", user.name);
 }
 
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
 {
     NSLog(@"%@", @"login");
-    [self performSegueWithIdentifier: @"SegueToMain" sender: self];
+    //TODO: DELETE [self performSegueWithIdentifier: @"SegueToMain" sender: self];
+    //TODO: DELETE[self dismissViewControllerAnimated:YES completion:nil];
+    
+    UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+    UIViewController *mainController = [storyboard instantiateViewControllerWithIdentifier:@"mainScreen"];
+    [self.navigationController pushViewController:mainController animated:YES];
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView
@@ -69,9 +79,5 @@
     NSLog(@"%@",@"error");
 }
 
-- (IBAction)tstButtonClick:(id)sender
-{
-    [self performSegueWithIdentifier: @"SegueToMain" sender: self];
-}
 
 @end

@@ -9,5 +9,9 @@
 #import "MVBaseViewController.h"
 
 @interface MVMovieListViewController : MVBaseViewController
+- (UINib *)createMovieTableCellNib;
+- (void)setupTableView:(UITableView *)tableView;
+
+@property (nonatomic, strong) NSArray * movies;
 
 @end

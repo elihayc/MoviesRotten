@@ -9,30 +9,38 @@
 #import "MVBaseViewController.h"
 
 @interface MVBaseViewController ()
-
 @end
 
 @implementation MVBaseViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (MVAppData*)appData
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    return [MVAppData sharedInstance];
 }
-
+//TODO:DELETE
+//
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
+//
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
+-(void)showLoginScreen
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    //TODO:DELETE
+//    UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+//    UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"loginScreen"];
+//    [self presentViewController:loginController animated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
+
 
 @end

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MVBaseViewController : UIViewController
+@property (nonatomic, weak,readonly) MVAppData * appData;
 
+-(void)showLoginScreen;
 @end

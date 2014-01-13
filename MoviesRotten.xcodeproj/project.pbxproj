@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		52257D74D2C44FFCB60055C2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9151AD2BF7394483B13E218F /* libPods.a */; };
+		F63E53C91882979B00924144 /* MVSegueNames.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53C81882979B00924144 /* MVSegueNames.m */; };
+		F63E53CF18829EA200924144 /* MVMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53CE18829EA200924144 /* MVMainViewController.m */; };
+		F63E53D71883CD0B00924144 /* MVMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53D61883CD0B00924144 /* MVMovieTableViewCell.m */; };
+		F63E53DA1883DA5500924144 /* MVMovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53D91883DA5500924144 /* MVMovieListViewController.m */; };
+		F63E53DE1884132900924144 /* MVMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63E53DD1884132900924144 /* MVMovieTableViewCell.xib */; };
+		F64204C918828BAA0047867F /* MVNotifcationsNames.m in Sources */ = {isa = PBXBuildFile; fileRef = F64204C818828BAA0047867F /* MVNotifcationsNames.m */; };
 		F64D3E04187D5C3000D2A019 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64D3E03187D5C3000D2A019 /* Foundation.framework */; };
 		F64D3E06187D5C3000D2A019 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64D3E05187D5C3000D2A019 /* CoreGraphics.framework */; };
 		F64D3E08187D5C3000D2A019 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64D3E07187D5C3000D2A019 /* UIKit.framework */; };
@@ -32,6 +38,10 @@
 		F64D3E55187D701E00D2A019 /* MVFlowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F64D3E54187D701E00D2A019 /* MVFlowManager.m */; };
 		F64D3E58187D707B00D2A019 /* MVFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F64D3E57187D707B00D2A019 /* MVFacebookManager.m */; };
 		F64D3E5B187D7B0900D2A019 /* MVRottenTomatoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F64D3E5A187D7B0900D2A019 /* MVRottenTomatoManager.m */; };
+		F64D3E86187EE5D600D2A019 /* MVSearchMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F64D3E81187EE5D600D2A019 /* MVSearchMovieViewController.m */; };
+		F64D3E87187EE5D600D2A019 /* MVTheatersMoviesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F64D3E83187EE5D600D2A019 /* MVTheatersMoviesViewController.m */; };
+		F64D3E88187EE5D600D2A019 /* MVUserProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F64D3E85187EE5D600D2A019 /* MVUserProfileViewController.m */; };
+		F6E105B41880410B00C3F0ED /* MVBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E105B31880410A00C3F0ED /* MVBaseViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +57,18 @@
 /* Begin PBXFileReference section */
 		9151AD2BF7394483B13E218F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BA48344AC4453AB66B7151 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		F63E53C71882979B00924144 /* MVSegueNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVSegueNames.h; path = Model/MVSegueNames.h; sourceTree = "<group>"; };
+		F63E53C81882979B00924144 /* MVSegueNames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVSegueNames.m; path = Model/MVSegueNames.m; sourceTree = "<group>"; };
+		F63E53CD18829EA200924144 /* MVMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVMainViewController.h; sourceTree = "<group>"; };
+		F63E53CE18829EA200924144 /* MVMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVMainViewController.m; sourceTree = "<group>"; };
+		F63E53D21882E31000924144 /* MVRottenLoadData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MVRottenLoadData.h; path = protocol/MVRottenLoadData.h; sourceTree = "<group>"; };
+		F63E53D51883CD0B00924144 /* MVMovieTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVMovieTableViewCell.h; sourceTree = "<group>"; };
+		F63E53D61883CD0B00924144 /* MVMovieTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVMovieTableViewCell.m; sourceTree = "<group>"; };
+		F63E53D81883DA5500924144 /* MVMovieListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVMovieListViewController.h; sourceTree = "<group>"; };
+		F63E53D91883DA5500924144 /* MVMovieListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVMovieListViewController.m; sourceTree = "<group>"; };
+		F63E53DD1884132900924144 /* MVMovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MVMovieTableViewCell.xib; sourceTree = "<group>"; };
+		F64204C718828BAA0047867F /* MVNotifcationsNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVNotifcationsNames.h; path = Model/MVNotifcationsNames.h; sourceTree = "<group>"; };
+		F64204C818828BAA0047867F /* MVNotifcationsNames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVNotifcationsNames.m; path = Model/MVNotifcationsNames.m; sourceTree = "<group>"; };
 		F64D3E00187D5C3000D2A019 /* MoviesRotten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesRotten.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F64D3E03187D5C3000D2A019 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F64D3E05187D5C3000D2A019 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -85,6 +107,14 @@
 		F64D3E57187D707B00D2A019 /* MVFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVFacebookManager.m; path = InternalFrameWork/MVFacebookManager.m; sourceTree = "<group>"; };
 		F64D3E59187D7B0900D2A019 /* MVRottenTomatoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVRottenTomatoManager.h; sourceTree = "<group>"; };
 		F64D3E5A187D7B0900D2A019 /* MVRottenTomatoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVRottenTomatoManager.m; sourceTree = "<group>"; };
+		F64D3E80187EE5D600D2A019 /* MVSearchMovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVSearchMovieViewController.h; sourceTree = "<group>"; };
+		F64D3E81187EE5D600D2A019 /* MVSearchMovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVSearchMovieViewController.m; sourceTree = "<group>"; };
+		F64D3E82187EE5D600D2A019 /* MVTheatersMoviesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVTheatersMoviesViewController.h; sourceTree = "<group>"; };
+		F64D3E83187EE5D600D2A019 /* MVTheatersMoviesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVTheatersMoviesViewController.m; sourceTree = "<group>"; };
+		F64D3E84187EE5D600D2A019 /* MVUserProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVUserProfileViewController.h; sourceTree = "<group>"; };
+		F64D3E85187EE5D600D2A019 /* MVUserProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVUserProfileViewController.m; sourceTree = "<group>"; };
+		F6E105B21880410A00C3F0ED /* MVBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVBaseViewController.h; sourceTree = "<group>"; };
+		F6E105B31880410A00C3F0ED /* MVBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVBaseViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +142,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F63E53D01882E21F00924144 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				F63E53D21882E31000924144 /* MVRottenLoadData.h */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
 		F64D3DF7187D5C3000D2A019 = {
 			isa = PBXGroup;
 			children = (
@@ -153,6 +191,7 @@
 				F64D3E12187D5C3000D2A019 /* MVAppDelegate.h */,
 				F64D3E13187D5C3000D2A019 /* MVAppDelegate.m */,
 				F64D3E15187D5C3000D2A019 /* Main_iPhone.storyboard */,
+				F63E53DD1884132900924144 /* MVMovieTableViewCell.xib */,
 				F64D3E18187D5C3000D2A019 /* Main_iPad.storyboard */,
 				F64D3E1E187D5C3000D2A019 /* Images.xcassets */,
 				F64D3E0A187D5C3000D2A019 /* Supporting Files */,
@@ -192,10 +231,15 @@
 		F64D3E3B187D614200D2A019 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F64D3E7F187EE5D600D2A019 /* TabViewControllers */,
 				F64D3E3C187D617F00D2A019 /* MVSplashViewController.h */,
 				F64D3E3D187D617F00D2A019 /* MVSplashViewController.m */,
 				F64D3E3F187D619000D2A019 /* MVLoginViewController.h */,
 				F64D3E40187D619000D2A019 /* MVLoginViewController.m */,
+				F6E105B21880410A00C3F0ED /* MVBaseViewController.h */,
+				F6E105B31880410A00C3F0ED /* MVBaseViewController.m */,
+				F63E53CD18829EA200924144 /* MVMainViewController.h */,
+				F63E53CE18829EA200924144 /* MVMainViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -209,6 +253,10 @@
 				F64D3E47187D64B600D2A019 /* MVUser.m */,
 				F64D3E49187D64CB00D2A019 /* MVMovieReview.h */,
 				F64D3E4A187D64CB00D2A019 /* MVMovieReview.m */,
+				F64204C718828BAA0047867F /* MVNotifcationsNames.h */,
+				F64204C818828BAA0047867F /* MVNotifcationsNames.m */,
+				F63E53C71882979B00924144 /* MVSegueNames.h */,
+				F63E53C81882979B00924144 /* MVSegueNames.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -216,6 +264,7 @@
 		F64D3E4C187D6F7E00D2A019 /* Internal Framework */ = {
 			isa = PBXGroup;
 			children = (
+				F63E53D01882E21F00924144 /* Protocol */,
 				F64D3E5D187D9A8700D2A019 /* Nib */,
 				F64D3E5C187D7B1500D2A019 /* External Services */,
 				F64D3E4D187D6FCC00D2A019 /* MVAppData.h */,
@@ -244,6 +293,23 @@
 			children = (
 			);
 			name = Nib;
+			sourceTree = "<group>";
+		};
+		F64D3E7F187EE5D600D2A019 /* TabViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F64D3E80187EE5D600D2A019 /* MVSearchMovieViewController.h */,
+				F64D3E81187EE5D600D2A019 /* MVSearchMovieViewController.m */,
+				F64D3E82187EE5D600D2A019 /* MVTheatersMoviesViewController.h */,
+				F64D3E83187EE5D600D2A019 /* MVTheatersMoviesViewController.m */,
+				F64D3E84187EE5D600D2A019 /* MVUserProfileViewController.h */,
+				F64D3E85187EE5D600D2A019 /* MVUserProfileViewController.m */,
+				F63E53D51883CD0B00924144 /* MVMovieTableViewCell.h */,
+				F63E53D61883CD0B00924144 /* MVMovieTableViewCell.m */,
+				F63E53D81883DA5500924144 /* MVMovieListViewController.h */,
+				F63E53D91883DA5500924144 /* MVMovieListViewController.m */,
+			);
+			path = TabViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +394,7 @@
 				F64D3E1A187D5C3000D2A019 /* Main_iPad.storyboard in Resources */,
 				F64D3E1F187D5C3000D2A019 /* Images.xcassets in Resources */,
 				F64D3E17187D5C3000D2A019 /* Main_iPhone.storyboard in Resources */,
+				F63E53DE1884132900924144 /* MVMovieTableViewCell.xib in Resources */,
 				F64D3E0E187D5C3000D2A019 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -380,17 +447,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F64D3E88187EE5D600D2A019 /* MVUserProfileViewController.m in Sources */,
 				F64D3E55187D701E00D2A019 /* MVFlowManager.m in Sources */,
+				F64D3E86187EE5D600D2A019 /* MVSearchMovieViewController.m in Sources */,
+				F63E53D71883CD0B00924144 /* MVMovieTableViewCell.m in Sources */,
 				F64D3E3E187D617F00D2A019 /* MVSplashViewController.m in Sources */,
+				F63E53CF18829EA200924144 /* MVMainViewController.m in Sources */,
 				F64D3E4B187D64CB00D2A019 /* MVMovieReview.m in Sources */,
 				F64D3E48187D64B600D2A019 /* MVUser.m in Sources */,
 				F64D3E5B187D7B0900D2A019 /* MVRottenTomatoManager.m in Sources */,
 				F64D3E41187D619000D2A019 /* MVLoginViewController.m in Sources */,
 				F64D3E4F187D6FCC00D2A019 /* MVAppData.m in Sources */,
+				F64D3E87187EE5D600D2A019 /* MVTheatersMoviesViewController.m in Sources */,
+				F64204C918828BAA0047867F /* MVNotifcationsNames.m in Sources */,
+				F63E53DA1883DA5500924144 /* MVMovieListViewController.m in Sources */,
 				F64D3E10187D5C3000D2A019 /* main.m in Sources */,
 				F64D3E45187D64A400D2A019 /* MVMovie.m in Sources */,
+				F63E53C91882979B00924144 /* MVSegueNames.m in Sources */,
 				F64D3E52187D6FF900D2A019 /* MVBaseDA.m in Sources */,
 				F64D3E58187D707B00D2A019 /* MVFacebookManager.m in Sources */,
+				F6E105B41880410B00C3F0ED /* MVBaseViewController.m in Sources */,
 				F64D3E14187D5C3000D2A019 /* MVAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

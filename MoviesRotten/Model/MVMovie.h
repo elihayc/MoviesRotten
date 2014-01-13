@@ -20,9 +20,9 @@
 @property (nonatomic, strong) NSString * criticsConsensus;
 @property (nonatomic, strong) NSMutableArray * ratings; // key value pairs
 @property (nonatomic, strong) NSString * synopsis;
-@property (nonatomic, strong) NSMutableArray * posters; // key value pairs (key:name, value:imgaeUrl)
+@property (nonatomic, strong) NSArray * posters; // key value pairs (key:name, value:imgaeUrl)
 @property (nonatomic, strong) NSMutableArray * abridgedCast;
-@property (nonatomic, strong) NSMutableArray * abridgedDirectors; // key value pairs
+@property (nonatomic, strong) NSArray * abridgedDirectors; // key value pairs
 @property (nonatomic, strong) NSString * studio;
 @property (nonatomic, strong) NSMutableArray * alternateIds; // key value pairs
 @property (nonatomic, strong) NSMutableArray * links; // key value pairs

@@ -9,5 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @interface MVSegueNames : NSObject
-
+//TODO:DELETE
+extern NSString * const SEG_SPLASH_TO_MAIN;
 @end

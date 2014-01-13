@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "MVRottenLoadData.h"
 @interface MVRottenTomatoManager : NSObject
 
+- (void)loadTheatersMovies:(id<MVRottenLoadData>)delegate;
+- (void)getMovieById:(NSString *)movieId delegate:(id<MVRottenLoadData>)delegate;
+-(void)searchMovie:(NSString*)searchText delegate:(id<MVRottenLoadData>)delegate;
 @end

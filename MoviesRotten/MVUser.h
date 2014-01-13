@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MVUser : NSObject
+@interface MVUser : NSObject <NSCoding>
 
 @property (nonatomic, strong) NSString* firstName;
 @property (nonatomic, strong) NSString* lastName;
-@property (nonatomic, strong) NSString* facebookToken;
+@property (nonatomic, strong) NSString* faceBookProfileID;
 @property (nonatomic, strong) NSMutableArray * favoriteMovies;
 @end

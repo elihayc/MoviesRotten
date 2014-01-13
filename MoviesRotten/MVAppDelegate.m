@@ -44,6 +44,8 @@
 {
     // implemented for learning
 //    [self showSplashScreen];
+
+    [FBLoginView class];
     return YES;
 }
 							

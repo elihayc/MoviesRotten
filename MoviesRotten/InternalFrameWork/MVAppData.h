@@ -8,10 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "MVFacebookManager.h"
-
+#import "MVUser.h"
+#import "MVRottenTomatoManager.h"
 @interface MVAppData : NSObject
 
-+ (id)sharedInstance;
++ (instancetype)sharedInstance;
+
+
+- (void)saveUserWithFirstName:(NSString*)firstName
+                     lastName:(NSString*)lastName
+                    profileID:(NSString*)profileId;
 
 @property (nonatomic, strong) MVFacebookManager * faceBookMgr;
+@property (nonatomic, strong) MVUser * user;
+@property (nonatomic, strong) MVRottenTomatoManager * rottenTomatoMgr;
+
 @end

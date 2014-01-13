@@ -8,7 +8,7 @@
 
 #import "MVSearchMovieViewController.h"
 
-@interface MVSearchMovieViewController ()<MVRottenLoadData>
+@interface MVSearchMovieViewController ()<MVRottenLoadData, UISearchBarDelegate, UISearchDisplayDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *moviesTable;
 @end
@@ -28,5 +28,13 @@
 {
     self.movies = data.array;
     [self.moviesTable reloadData];
+}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self.appData.rottenTomatoMgr searchMovie:searchString delegate:self];
+    
+    return YES;
 }
 @end

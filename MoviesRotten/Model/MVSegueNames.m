@@ -9,5 +9,7 @@
 #import "MVSegueNames.h"
 
 @implementation MVSegueNames
+//TODO:DELETE
+NSString * const SEG_SPLASH_TO_MAIN = @"splashToMain";
 
 @end

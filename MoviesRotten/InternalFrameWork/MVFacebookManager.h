@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 
 
-@interface MVFacebookManager : NSObject 
-- (BOOL)IsUserConnected;
+@interface MVFacebookManager : NSObject
 
+-(void)tryConnectWithPreviousToken;
+- (BOOL)isUserConnected;
+- (void)logout;
 @end

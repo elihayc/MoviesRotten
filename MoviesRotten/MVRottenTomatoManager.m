@@ -7,7 +7,105 @@
 //
 
 #import "MVRottenTomatoManager.h"
+#import "MVMovie.h"
 
 @implementation MVRottenTomatoManager
+NSString * const ROTTEN_KEY = @"quw9qe488qdhak3dcf64vwkn";
+- (instancetype)init
+{
+    self = [super init];
+    
+    if (self)
+    {
+        [self setupRestKit];
+    }
+    
+    return self;
+}
+
+// private methods
+
+- (void)setupRestKit
+{
+    //configure "text/javascript" as json, because Rotter Tomato return Json in Mime Type : "text/javascript"
+    [RKMIMETypeSerialization registerClass:[RKNSJSONSerialization class] forMIMEType:@"text/javascript"];
+}
+
+// call callRottenGetRequest without extra url argument
+- (void)callRottenGetRequest:(NSString *)getRequest responseDescriptor:(RKResponseDescriptor *)responseDescriptor delegate:(id<MVRottenLoadData>)delegate
+{
+    [self callRottenGetRequest:getRequest responseDescriptor:responseDescriptor delegate:delegate extraParams:@""];
+}
+
+// call to Rotten Tomato api get call, the return value invoke by the delegate
+- (void)callRottenGetRequest:(NSString *)getRequest responseDescriptor:(RKResponseDescriptor *)responseDescriptor delegate:(id<MVRottenLoadData>)delegate extraParams:(NSString *)extraParams
+{
+    extraParams = [extraParams stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://api.rottentomatoes.com/api/public/v1.0/%@?apikey=%@%@",getRequest, ROTTEN_KEY, extraParams]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    
+    RKObjectRequestOperation *operation = [[RKObjectRequestOperation alloc] initWithRequest:request responseDescriptors:@[responseDescriptor]];
+    
+    [operation setCompletionBlockWithSuccess:^(RKObjectRequestOperation *operation, RKMappingResult *result) {
+        NSLog(@"load %@ success", getRequest);
+        [delegate operation:operation didCompleteWithData:result];
+        
+    } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+        NSLog(@"Operation %@ failed with error: %@", getRequest, error);
+        if ([delegate respondsToSelector:@selector(operation:didFailWithError:)]) {
+            [delegate operation:operation didFailWithError:error];
+        }
+        
+    }];
+    
+    [operation start];
+}
+
+-(RKObjectMapping *)getMovieMapping
+{
+    RKObjectMapping * mapping = [RKObjectMapping mappingForClass:[MVMovie class]];
+    [mapping addAttributeMappingsFromDictionary:@{
+                                                  @"id": @"id",
+                                                  @"title": @"title",
+                                                  @"synopsis":@"synopsis",
+                                                  @"year":  @"year",
+                                                  @"mpaa_rating" : @"mpaaRating"
+                                                  }];
+    return mapping;
+}
+
+//Public methods
+
+-(void)searchMovie:(NSString*)searchText delegate:(id<MVRottenLoadData>)delegate
+{
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self getMovieMapping] method:RKRequestMethodAny pathPattern:nil keyPath:@"movies" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    NSString * getRequest = @"movies.json";
+    NSString * params = [NSString stringWithFormat:@"&q=%@&page_limit=40", searchText];
+    
+    [self callRottenGetRequest:getRequest responseDescriptor:responseDescriptor delegate:delegate extraParams:params];
+
+}
+
+- (void)loadTheatersMovies:(id<MVRottenLoadData>)delegate
+{
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:[self getMovieMapping] method:RKRequestMethodAny pathPattern:nil keyPath:@"movies" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    NSString * getRequest = @"lists/movies/in_theaters.json";
+    
+    [self callRottenGetRequest:getRequest responseDescriptor:responseDescriptor delegate:delegate];
+}
+
+
+- (void)getMovieById:(NSString *)movieId delegate:(id<MVRottenLoadData>)delegate
+{
+    RKObjectMapping *mapping = [RKObjectMapping mappingForClass:[MVMovie class]];
+    [mapping addAttributeMappingsFromArray:@[@"title",@"year"]]; // TODO : create method get movie mapping?
+    
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:mapping method:RKRequestMethodAny pathPattern:nil keyPath:nil statusCodes:nil];
+    
+    NSString * getRequest = [NSString stringWithFormat:@"movies/%@.json" , movieId];
+    
+    [self callRottenGetRequest:getRequest responseDescriptor:responseDescriptor delegate:delegate];
+   }
 
 @end

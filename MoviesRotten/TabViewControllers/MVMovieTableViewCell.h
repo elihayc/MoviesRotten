@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MVMovie.h"
 @interface MVMovieTableViewCell : UITableViewCell
-
+-(void)SetMovie:(MVMovie *)movie;
 @end
