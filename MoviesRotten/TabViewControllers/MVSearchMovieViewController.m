@@ -15,6 +15,11 @@
 
 @implementation MVSearchMovieViewController
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+}
+
 - (void)operation:(RKObjectRequestOperation *)operation didCompleteWithData:(RKMappingResult *)data
 {
     self.movies = data.array;
@@ -22,11 +27,10 @@
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
--(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    [self.appData.rottenTomatoMgr searchMovie:searchString delegate:self];
-    
-    return YES;
+    [self.appData.rottenTomatoMgr searchMovie:self.searchBar.text delegate:self];
+    [self.searchBar resignFirstResponder];
 }
 
 @end
