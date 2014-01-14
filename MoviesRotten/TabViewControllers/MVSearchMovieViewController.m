@@ -11,6 +11,7 @@
 @interface MVSearchMovieViewController ()<MVRottenLoadData, UISearchBarDelegate, UISearchDisplayDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UITableView *moviesTable;
+@property (strong, nonatomic) UIActivityIndicatorView *spinner;
 @end
 
 @implementation MVSearchMovieViewController
@@ -18,12 +19,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.spinner.center =self.moviesTable.center;
+    [self.view addSubview: self.spinner];
+    
 }
 
 - (void)operation:(RKObjectRequestOperation *)operation didCompleteWithData:(RKMappingResult *)data
 {
     self.movies = data.array;
     [self.moviesTable reloadData];
+    
+    [self.spinner stopAnimating];
+    
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
@@ -31,6 +39,8 @@
 {
     [self.appData.rottenTomatoMgr searchMovie:self.searchBar.text delegate:self];
     [self.searchBar resignFirstResponder];
+    
+    [self.spinner startAnimating];
 }
 
 @end

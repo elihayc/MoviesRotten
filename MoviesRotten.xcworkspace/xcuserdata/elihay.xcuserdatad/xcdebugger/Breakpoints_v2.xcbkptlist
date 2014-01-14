@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviesRotten/TabViewControllers/MVSearchMovieViewController.m"
-            timestampString = "411381064.650487"
+            timestampString = "411382737.856939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "-searchBarSearchButtonClicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MoviesRotten/TabViewControllers/MVSearchMovieViewController.m"
-            timestampString = "411381064.650487"
+            timestampString = "411382737.856939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "-operation:didCompleteWithData:"
             landmarkType = "5">
          </BreakpointContent>

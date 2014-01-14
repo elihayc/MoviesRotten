@@ -239,6 +239,35 @@
             </objects>
             <point key="canvasLocation" x="4137" y="314"/>
         </scene>
+        <!--Movie Detail View Controller-->
+        <scene sceneID="rZ9-3u-akS">
+            <objects>
+                <viewController id="zPU-G6-BDT" customClass="MVMovieDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kob-9d-eYt"/>
+                        <viewControllerLayoutGuide type="bottom" id="EcP-Ad-Zgm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vRP-dd-5T6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qbh-6I-wEC">
+                                <rect key="frame" x="20" y="20" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="movieName" destination="qbh-6I-wEC" id="CGC-Zy-JQv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3nO-3S-tSu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4578" y="314"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="h65-iq-f5W">
             <objects>

@@ -13,6 +13,7 @@
 		F63E53D71883CD0B00924144 /* MVMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53D61883CD0B00924144 /* MVMovieTableViewCell.m */; };
 		F63E53DA1883DA5500924144 /* MVMovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53D91883DA5500924144 /* MVMovieListViewController.m */; };
 		F63E53DE1884132900924144 /* MVMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63E53DD1884132900924144 /* MVMovieTableViewCell.xib */; };
+		F63E53E118852E4100924144 /* MVMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53E018852E4100924144 /* MVMovieDetailViewController.m */; };
 		F64204C918828BAA0047867F /* MVNotifcationsNames.m in Sources */ = {isa = PBXBuildFile; fileRef = F64204C818828BAA0047867F /* MVNotifcationsNames.m */; };
 		F64D3E04187D5C3000D2A019 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64D3E03187D5C3000D2A019 /* Foundation.framework */; };
 		F64D3E06187D5C3000D2A019 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64D3E05187D5C3000D2A019 /* CoreGraphics.framework */; };
@@ -67,6 +68,8 @@
 		F63E53D81883DA5500924144 /* MVMovieListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVMovieListViewController.h; sourceTree = "<group>"; };
 		F63E53D91883DA5500924144 /* MVMovieListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVMovieListViewController.m; sourceTree = "<group>"; };
 		F63E53DD1884132900924144 /* MVMovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MVMovieTableViewCell.xib; sourceTree = "<group>"; };
+		F63E53DF18852E4100924144 /* MVMovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVMovieDetailViewController.h; sourceTree = "<group>"; };
+		F63E53E018852E4100924144 /* MVMovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVMovieDetailViewController.m; sourceTree = "<group>"; };
 		F64204C718828BAA0047867F /* MVNotifcationsNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVNotifcationsNames.h; path = Model/MVNotifcationsNames.h; sourceTree = "<group>"; };
 		F64204C818828BAA0047867F /* MVNotifcationsNames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVNotifcationsNames.m; path = Model/MVNotifcationsNames.m; sourceTree = "<group>"; };
 		F64D3E00187D5C3000D2A019 /* MoviesRotten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesRotten.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -240,6 +243,8 @@
 				F6E105B31880410A00C3F0ED /* MVBaseViewController.m */,
 				F63E53CD18829EA200924144 /* MVMainViewController.h */,
 				F63E53CE18829EA200924144 /* MVMainViewController.m */,
+				F63E53DF18852E4100924144 /* MVMovieDetailViewController.h */,
+				F63E53E018852E4100924144 /* MVMovieDetailViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -452,6 +457,7 @@
 				F64D3E86187EE5D600D2A019 /* MVSearchMovieViewController.m in Sources */,
 				F63E53D71883CD0B00924144 /* MVMovieTableViewCell.m in Sources */,
 				F64D3E3E187D617F00D2A019 /* MVSplashViewController.m in Sources */,
+				F63E53E118852E4100924144 /* MVMovieDetailViewController.m in Sources */,
 				F63E53CF18829EA200924144 /* MVMainViewController.m in Sources */,
 				F64D3E4B187D64CB00D2A019 /* MVMovieReview.m in Sources */,
 				F64D3E48187D64B600D2A019 /* MVUser.m in Sources */,
