@@ -21,6 +21,7 @@
     [super viewDidLoad];
     self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.spinner.center =self.moviesTable.center;
+    self.spinner.hidesWhenStopped = YES;
     [self.view addSubview: self.spinner];
     
 }
@@ -31,7 +32,6 @@
     [self.moviesTable reloadData];
     
     [self.spinner stopAnimating];
-    
 }
 
 #pragma mark - UISearchDisplayController Delegate Methods
