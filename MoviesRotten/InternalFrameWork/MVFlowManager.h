@@ -7,7 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MVBaseViewController.h"
+
+typedef enum {
+    pushView,
+    popView,
+    presentView,
+    dismissView
+} NavigationAction;
 
 @interface MVFlowManager : NSObject
++ (instancetype)sharedInstance;
 
+- (void)setCurrentViewController:(UIViewController *)viewController;
+
+- (void)navigatewithAction:(NavigationAction)action ViewIdentifier:(NSString*)viewIdentifier data:(id)data;
+
+- (void)pushViewController:(NSString*)viewIdentifier animated:(BOOL)animated;
+
+-(void)popViewControllerAnimated:(BOOL)animated;
+
+- (void)presentViewController:(NSString*)viewIdentifier animated:(BOOL)animated;
+
+-(void)dismissViewControllerAnimated:(BOOL)animated completion:(void (^)(void))completion;
 @end
