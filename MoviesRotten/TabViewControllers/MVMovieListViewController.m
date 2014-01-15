@@ -19,6 +19,7 @@ NSString * const CELL_IDENTIFIER = @"MovieCell";
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:YES];
     [self.navigationController setNavigationBarHidden:YES];
 }
 
@@ -48,8 +49,7 @@ NSString * const CELL_IDENTIFIER = @"MovieCell";
 
 - (UINib *)createMovieTableCellNib
 {
-    NSString *nibIdentifier = @"MVMovieTableViewCell";
-    return [UINib nibWithNibName:nibIdentifier bundle:[NSBundle mainBundle]];
+   return [UINib nibWithNibName:NIB_ID_MOVIE bundle:[NSBundle mainBundle]];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

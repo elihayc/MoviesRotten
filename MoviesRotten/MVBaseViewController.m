@@ -8,6 +8,7 @@
 
 #import "MVBaseViewController.h"
 
+
 @interface MVBaseViewController ()
 @end
 
@@ -18,9 +19,9 @@
     return [MVAppData sharedInstance];
 }
 
-- (void)viewDidAppear:(BOOL)animated
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillAppear:animated];
     [MVFlowManager.sharedInstance setCurrentViewController:self];
 
 }

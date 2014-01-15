@@ -25,6 +25,4 @@ typedef enum {
 
 - (void)setCurrentViewController:(UIViewController *)viewController;
 
-- (void)navigatewithAction:(NavigationAction)action ViewIdentifier:(NSString*)viewIdentifier data:(id)data;
-
 @end

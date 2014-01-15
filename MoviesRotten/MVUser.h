@@ -10,8 +10,15 @@
 
 @interface MVUser : NSObject <NSCoding>
 
++ (instancetype)createWithFirstName:(NSString*)firstName
+                         lastName:(NSString*)lastName
+                facebookProfileID:(NSString*)facebookProfileID;
+
 @property (nonatomic, strong) NSString* firstName;
 @property (nonatomic, strong) NSString* lastName;
 @property (nonatomic, strong) NSString* faceBookProfileID;
 @property (nonatomic, strong) NSMutableArray * favoriteMovies;
+
+
+
 @end

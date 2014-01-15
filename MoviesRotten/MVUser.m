@@ -15,7 +15,7 @@ NSString * const KEY_LAST_NAME = @"lastName";
 NSString * const KEY_FB_ID = @"faceBookID";
 NSString * const KEY_FAVORITE_MOVIES = @"favoriteMovies";
 
-- (id) init
+- (instancetype) init
 {
     self = [super init];
     
@@ -27,7 +27,19 @@ NSString * const KEY_FAVORITE_MOVIES = @"favoriteMovies";
     return self;
 }
 
-- (id)initWithCoder:(NSCoder *)decoder {
++ (instancetype)createWithFirstName:(NSString*)firstName
+                     lastName:(NSString*)lastName
+            facebookProfileID:(NSString*)facebookProfileID
+{
+    MVUser* user = [MVUser new];
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.faceBookProfileID = facebookProfileID;
+    
+    return user;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
     self = [super init];
     if(self)
     {

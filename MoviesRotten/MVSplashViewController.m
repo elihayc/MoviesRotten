@@ -7,6 +7,7 @@
 //
 
 #import "MVSplashViewController.h"
+#import "MVUserRepository.h"
 
 @interface MVSplashViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *backImage;
@@ -26,12 +27,10 @@
                selector:@selector(facebookConnectionChanged:)
                    name:FB_STATUS_CHANGED
                  object:nil];
-    [self.navigationController setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    
     [super viewDidAppear:animated];
     
     [self.appData.faceBookMgr tryConnectWithPreviousToken];
@@ -52,10 +51,10 @@
                          {
                              if ([self.appData.faceBookMgr isUserConnected])
                              {
-                                //TODO: add to FlowManager
+                                NSString* profileId = [notification userInfo][@"profileId"];
+                                self.appData.user = [[MVUserRepository sharedInstance] loadUserbyFBID:profileId];
                                 UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
-                                UIViewController *mainController = [storyboard instantiateViewControllerWithIdentifier:@"mainScreen"];//TODO mainScreen as const
-
+                                UIViewController *mainController = [storyboard instantiateViewControllerWithIdentifier:VIEW_ID_MAIN];
                                 [self presentViewController:mainController animated:YES completion:nil];
                              }
                              else

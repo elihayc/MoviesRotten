@@ -47,11 +47,6 @@
     [self.viewController presentViewController:loginViewController animated:YES completion:nil];
 }
 
-- (void)navigatewithAction:(NavigationAction)action ViewIdentifier:(NSString*)viewIdentifier data:(id)data
-{
-    //TODO: implement general navigation ?
-}
-
 //private methods
 
 -(id) getViewFromStoryBoardWithIdentifier:(NSString*)viewIdentifier

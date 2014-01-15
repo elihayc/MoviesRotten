@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "MVFlowManager.h"
+#import "MVUserRepository.h"
 
 @interface MVBaseViewController : UIViewController
 @property (nonatomic, weak,readonly) MVAppData * appData;

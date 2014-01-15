@@ -9,6 +9,7 @@
 #import "MVLoginViewController.h"
 #import "FacebookSDK/FacebookSDK.h"
 
+
 @interface MVLoginViewController () <FBLoginViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *fbName;
 @property (weak, nonatomic) IBOutlet FBProfilePictureView *profilePictureView;
@@ -48,22 +49,28 @@
     self.fbName.text = user.name;
     self.profilePictureView.profileID = user.id;
     
-    [[MVAppData sharedInstance] saveUserWithFirstName:user.first_name
-                                             lastName:user.last_name
-                                            profileID:user.id];
+    MVUser* movieUser = [[MVUserRepository sharedInstance] loadUserbyFBID:user.id];
+    if (!movieUser)
+    {
+        movieUser = [MVUser createWithFirstName:user.first_name lastName:user.last_name facebookProfileID:user.id];
+    }
+    
+    [MVAppData sharedInstance].user = movieUser;
+    
+    [[MVUserRepository sharedInstance] saveUser:self.appData.user];
+    
+    [self closeScreen];
     
     NSLog(@"loginViewFetchedUserInfo username: %@", user.name);
 }
 
-- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
+-(void)closeScreen
 {
-    NSLog(@"%@", @"login");
-    
     if (self.isRoot)
     {
         UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
         UIViewController *mainController = [storyboard instantiateViewControllerWithIdentifier:@"mainScreen"];
-
+        
         [self presentViewController:mainController animated:YES completion:nil];
     }
     else
@@ -71,7 +78,11 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }
     [self removeFromParentViewController];
-    
+}
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
+{
+    NSLog(@"%@", @"login");
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView

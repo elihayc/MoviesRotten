@@ -28,7 +28,7 @@
 
 -(void)SetMovie:(MVMovie *)movie
 {
-    self.movieName.text = movie.title;
+    self.movieName.text = [NSString stringWithFormat:@"%@ (%d)", movie.title, movie.year];
     self.movieDescription.text = movie.synopsis.length <= 190 ? movie.synopsis :[NSString stringWithFormat:@"%@...", [movie.synopsis substringToIndex:190]];
     
     

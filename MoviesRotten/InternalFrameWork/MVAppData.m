@@ -10,7 +10,7 @@
 
 @implementation MVAppData
 
-NSString * const USER_KEY = @"user";
+
 
 + (instancetype)sharedInstance
 {
@@ -37,30 +37,19 @@ NSString * const USER_KEY = @"user";
 
 - (void)loadLocalData
 {
-    self.user = [MVUser new];
     
-    //deSerilize object from NSUserDefaults
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSData *archivedObject = [defaults objectForKey:USER_KEY];
-    MVUser * user = (MVUser *)[NSKeyedUnarchiver unarchiveObjectWithData:archivedObject];
-    
-    if (user) self.user = user;
+    //TODO:delete
+// self.user = [MVUser new];
+//    
+//    //deSerilize object from NSUserDefaults
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    NSData *archivedObject = [defaults objectForKey:USER_KEY];
+//    MVUser * user = (MVUser *)[NSKeyedUnarchiver unarchiveObjectWithData:archivedObject];
+//    
+//    if (user) self.user = user;
 }
 
-- (void)saveUserWithFirstName:(NSString*)firstName
-                     lastName:(NSString*)lastName
-                    profileID:(NSString*)profileId
-{
-    self.user.firstName = firstName;
-    self.user.lastName = lastName;
-    self.user.faceBookProfileID = profileId;
-    
-    //Save Serilize object in NSUserDefaults
-    NSData *archivedObject = [NSKeyedArchiver archivedDataWithRootObject:self.user];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:archivedObject forKey:USER_KEY];
-    [defaults synchronize];
-}
+
 
 
 @end

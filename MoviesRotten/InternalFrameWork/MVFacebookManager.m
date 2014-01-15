@@ -21,9 +21,6 @@
         [FBSession openActiveSessionWithReadPermissions:@[@"basic_info"]
                                            allowLoginUI:NO
                                       completionHandler:^(FBSession *session, FBSessionState state, NSError *error) {
-                                          // Handler for session state changes
-                                          // This method will be called EACH time the session state changes,
-                                          // also for intermediate states and NOT just when the session open
                                           [self sessionStateChanged:session state:state error:error];
                                       }];
     }
@@ -46,13 +43,21 @@
 }
 
 
+
 // This method will handle ALL the session state changes in the app
 - (void)sessionStateChanged:(FBSession *)session state:(FBSessionState) state error:(NSError *)error
 {
-    [[NSNotificationCenter defaultCenter] postNotificationName:FB_STATUS_CHANGED object:nil];
+    
         // If the session was opened successfully
         if (!error && state == FBSessionStateOpen){
-            NSLog(@"Session opened");
+            [[FBRequest requestForMe] startWithCompletionHandler:^(FBRequestConnection *connection, NSDictionary<FBGraphUser>* user, NSError *error)
+            {
+                NSLog(@"FB Session opened, user id: %@", user.id);
+                [[NSNotificationCenter defaultCenter] postNotificationName:FB_STATUS_CHANGED
+                                                                    object:nil
+                                                                  userInfo:@{@"facebookToken":session.accessTokenData.accessToken,
+                                                                             @"profileId":user.id}];
+            }];
             return;
         }
         if (state == FBSessionStateClosed || state == FBSessionStateClosedLoginFailed){
@@ -66,6 +71,9 @@
             NSString *alertText;
             NSString *alertTitle;
             NSLog(@"FaceBook Error: title: %@ , text: %@", alertTitle, alertText);
+            //TODO: handle error
+            
+            
             // If the error requires people using an app to make an action outside of the app in order to recover
 //            if ([FBErrorUtility shouldNotifyUserForError:error] == YES){
 //                alertTitle = @"Something went wrong";
@@ -102,7 +110,9 @@
             //[self userLoggedOut];TODO://implement
         }
     
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:FB_STATUS_CHANGED
+                                                        object:nil];
+
 }
 
 @end
