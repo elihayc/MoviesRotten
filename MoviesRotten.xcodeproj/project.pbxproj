@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		52257D74D2C44FFCB60055C2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9151AD2BF7394483B13E218F /* libPods.a */; };
-		F63E53C91882979B00924144 /* MVSegueNames.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53C81882979B00924144 /* MVSegueNames.m */; };
 		F63E53CF18829EA200924144 /* MVMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53CE18829EA200924144 /* MVMainViewController.m */; };
 		F63E53D71883CD0B00924144 /* MVMovieTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53D61883CD0B00924144 /* MVMovieTableViewCell.m */; };
 		F63E53DA1883DA5500924144 /* MVMovieListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53D91883DA5500924144 /* MVMovieListViewController.m */; };
 		F63E53DE1884132900924144 /* MVMovieTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F63E53DD1884132900924144 /* MVMovieTableViewCell.xib */; };
 		F63E53E118852E4100924144 /* MVMovieDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53E018852E4100924144 /* MVMovieDetailViewController.m */; };
+		F63E53E418856D1300924144 /* MVViewsIdentifiers.m in Sources */ = {isa = PBXBuildFile; fileRef = F63E53E318856D1300924144 /* MVViewsIdentifiers.m */; };
 		F64204C918828BAA0047867F /* MVNotifcationsNames.m in Sources */ = {isa = PBXBuildFile; fileRef = F64204C818828BAA0047867F /* MVNotifcationsNames.m */; };
 		F64D3E04187D5C3000D2A019 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64D3E03187D5C3000D2A019 /* Foundation.framework */; };
 		F64D3E06187D5C3000D2A019 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64D3E05187D5C3000D2A019 /* CoreGraphics.framework */; };
@@ -58,8 +58,6 @@
 /* Begin PBXFileReference section */
 		9151AD2BF7394483B13E218F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1BA48344AC4453AB66B7151 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		F63E53C71882979B00924144 /* MVSegueNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVSegueNames.h; path = Model/MVSegueNames.h; sourceTree = "<group>"; };
-		F63E53C81882979B00924144 /* MVSegueNames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVSegueNames.m; path = Model/MVSegueNames.m; sourceTree = "<group>"; };
 		F63E53CD18829EA200924144 /* MVMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVMainViewController.h; sourceTree = "<group>"; };
 		F63E53CE18829EA200924144 /* MVMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVMainViewController.m; sourceTree = "<group>"; };
 		F63E53D21882E31000924144 /* MVRottenLoadData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MVRottenLoadData.h; path = protocol/MVRottenLoadData.h; sourceTree = "<group>"; };
@@ -70,6 +68,8 @@
 		F63E53DD1884132900924144 /* MVMovieTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MVMovieTableViewCell.xib; sourceTree = "<group>"; };
 		F63E53DF18852E4100924144 /* MVMovieDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVMovieDetailViewController.h; sourceTree = "<group>"; };
 		F63E53E018852E4100924144 /* MVMovieDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVMovieDetailViewController.m; sourceTree = "<group>"; };
+		F63E53E218856D1300924144 /* MVViewsIdentifiers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVViewsIdentifiers.h; path = Model/MVViewsIdentifiers.h; sourceTree = "<group>"; };
+		F63E53E318856D1300924144 /* MVViewsIdentifiers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVViewsIdentifiers.m; path = Model/MVViewsIdentifiers.m; sourceTree = "<group>"; };
 		F64204C718828BAA0047867F /* MVNotifcationsNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MVNotifcationsNames.h; path = Model/MVNotifcationsNames.h; sourceTree = "<group>"; };
 		F64204C818828BAA0047867F /* MVNotifcationsNames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MVNotifcationsNames.m; path = Model/MVNotifcationsNames.m; sourceTree = "<group>"; };
 		F64D3E00187D5C3000D2A019 /* MoviesRotten.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoviesRotten.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -260,8 +260,8 @@
 				F64D3E4A187D64CB00D2A019 /* MVMovieReview.m */,
 				F64204C718828BAA0047867F /* MVNotifcationsNames.h */,
 				F64204C818828BAA0047867F /* MVNotifcationsNames.m */,
-				F63E53C71882979B00924144 /* MVSegueNames.h */,
-				F63E53C81882979B00924144 /* MVSegueNames.m */,
+				F63E53E218856D1300924144 /* MVViewsIdentifiers.h */,
+				F63E53E318856D1300924144 /* MVViewsIdentifiers.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -270,7 +270,6 @@
 			isa = PBXGroup;
 			children = (
 				F63E53D01882E21F00924144 /* Protocol */,
-				F64D3E5D187D9A8700D2A019 /* Nib */,
 				F64D3E5C187D7B1500D2A019 /* External Services */,
 				F64D3E4D187D6FCC00D2A019 /* MVAppData.h */,
 				F64D3E4E187D6FCC00D2A019 /* MVAppData.m */,
@@ -291,13 +290,6 @@
 				F64D3E57187D707B00D2A019 /* MVFacebookManager.m */,
 			);
 			name = "External Services";
-			sourceTree = "<group>";
-		};
-		F64D3E5D187D9A8700D2A019 /* Nib */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Nib;
 			sourceTree = "<group>";
 		};
 		F64D3E7F187EE5D600D2A019 /* TabViewControllers */ = {
@@ -467,9 +459,9 @@
 				F64D3E87187EE5D600D2A019 /* MVTheatersMoviesViewController.m in Sources */,
 				F64204C918828BAA0047867F /* MVNotifcationsNames.m in Sources */,
 				F63E53DA1883DA5500924144 /* MVMovieListViewController.m in Sources */,
+				F63E53E418856D1300924144 /* MVViewsIdentifiers.m in Sources */,
 				F64D3E10187D5C3000D2A019 /* main.m in Sources */,
 				F64D3E45187D64A400D2A019 /* MVMovie.m in Sources */,
-				F63E53C91882979B00924144 /* MVSegueNames.m in Sources */,
 				F64D3E52187D6FF900D2A019 /* MVBaseDA.m in Sources */,
 				F64D3E58187D707B00D2A019 /* MVFacebookManager.m in Sources */,
 				F6E105B41880410B00C3F0ED /* MVBaseViewController.m in Sources */,

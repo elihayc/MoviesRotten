@@ -7,6 +7,9 @@
 //
 
 #import "MVFlowManager.h"
+#import "MVMovieDetailViewController.h"
+#import "MVLoginViewController.h"
+
 @interface MVFlowManager()
 @property (nonatomic, weak) UIViewController* viewController;
 
@@ -29,38 +32,29 @@
     self.viewController = viewController;
 }
 
+- (void)showMovieDetails:(MVMovie *)movie;
+{
+    MVMovieDetailViewController * movieViewController = [self getViewFromStoryBoardWithIdentifier:VIEW_ID_MOVIE_DETAILS];
+    movieViewController.movie = movie;
+    [self.viewController.navigationController pushViewController:movieViewController
+                                                        animated:YES];
+}
+
+- (void)showLoginScreenAsRoot:(BOOL)isRoot
+{
+    MVLoginViewController * loginViewController = [self getViewFromStoryBoardWithIdentifier:VIEW_ID_LOGIN];
+    loginViewController.isRoot = isRoot;
+    [self.viewController presentViewController:loginViewController animated:YES completion:nil];
+}
+
 - (void)navigatewithAction:(NavigationAction)action ViewIdentifier:(NSString*)viewIdentifier data:(id)data
 {
-    
-}
-
-- (void)pushViewController:(NSString*)viewIdentifier animated:(BOOL)animated
-{
-    
-    [self.viewController.navigationController pushViewController:[self getViewFromStoryBoardWithIdentifier:viewIdentifier]
-                                                        animated:animated];
-}
-
--(void)popViewControllerAnimated:(BOOL)animated
-{
-    [self.viewController.navigationController popViewControllerAnimated:animated];
-}
-
-- (void)presentViewController:(NSString*)viewIdentifier animated:(BOOL)animated
-{
-    
-    [self.viewController presentViewController:[self getViewFromStoryBoardWithIdentifier:viewIdentifier]
-                                      animated:animated completion:nil];
-}
-
--(void)dismissViewControllerAnimated:(BOOL)animated completion:(void (^)(void))completion
-{
-    [self.viewController dismissViewControllerAnimated:animated completion:completion];
+    //TODO: implement general navigation ?
 }
 
 //private methods
 
--(UIViewController *) getViewFromStoryBoardWithIdentifier:(NSString*)viewIdentifier
+-(id) getViewFromStoryBoardWithIdentifier:(NSString*)viewIdentifier
 {
     UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
     return [storyboard instantiateViewControllerWithIdentifier:viewIdentifier];

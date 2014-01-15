@@ -26,23 +26,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     //TODO:handle FB session logout
 //    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 //    [center addObserver:self
 //               selector:@selector(facebookConnectionChanged:)
 //                   name:FB_STATUS_CHANGED
 //                 object:nil];
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
-    //TODO:DELETE
-//    if (![[[MVAppData sharedInstance] faceBookMgr] isUserConnected])
-//    {
-//        UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
-//        UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"loginScreen"];
-//        [self presentViewController:loginController animated:YES completion:nil];
-//    }
 }
 
 -(void)facebookConnectionChanged:(NSNotification *)notification

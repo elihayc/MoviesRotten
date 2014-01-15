@@ -10,5 +10,5 @@
 #import "MVBaseViewController.h"
 
 @interface MVLoginViewController : MVBaseViewController
-
+@property (nonatomic) BOOL isRoot;
 @end

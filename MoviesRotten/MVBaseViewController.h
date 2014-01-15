@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MVFlowManager.h"
 
 @interface MVBaseViewController : UIViewController
 @property (nonatomic, weak,readonly) MVAppData * appData;
 
--(void)showLoginScreen;
+-(void)showLoginScreen:(BOOL)asRoot;
 @end

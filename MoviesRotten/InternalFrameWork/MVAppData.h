@@ -19,8 +19,8 @@
                      lastName:(NSString*)lastName
                     profileID:(NSString*)profileId;
 
-@property (nonatomic, strong) MVFacebookManager * faceBookMgr;
 @property (nonatomic, strong) MVUser * user;
+@property (nonatomic, strong) MVFacebookManager * faceBookMgr;
 @property (nonatomic, strong) MVRottenTomatoManager * rottenTomatoMgr;
 
 @end

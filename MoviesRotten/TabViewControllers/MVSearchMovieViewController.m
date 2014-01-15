@@ -7,6 +7,8 @@
 //
 
 #import "MVSearchMovieViewController.h"
+#import "MVMovieDetailViewController.h" //TODO: delete this import
+#import "MVLoginViewController.h" //TODO: delete this import
 
 @interface MVSearchMovieViewController ()<MVRottenLoadData, UISearchBarDelegate, UISearchDisplayDelegate>
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;

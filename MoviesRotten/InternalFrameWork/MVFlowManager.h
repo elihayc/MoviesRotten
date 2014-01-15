@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MVBaseViewController.h"
+#import "MVMovie.h"
 
 typedef enum {
     pushView,
@@ -19,15 +20,11 @@ typedef enum {
 @interface MVFlowManager : NSObject
 + (instancetype)sharedInstance;
 
+- (void)showMovieDetails:(MVMovie *)movie;
+- (void)showLoginScreenAsRoot:(BOOL)isRoot;
+
 - (void)setCurrentViewController:(UIViewController *)viewController;
 
 - (void)navigatewithAction:(NavigationAction)action ViewIdentifier:(NSString*)viewIdentifier data:(id)data;
 
-- (void)pushViewController:(NSString*)viewIdentifier animated:(BOOL)animated;
-
--(void)popViewControllerAnimated:(BOOL)animated;
-
-- (void)presentViewController:(NSString*)viewIdentifier animated:(BOOL)animated;
-
--(void)dismissViewControllerAnimated:(BOOL)animated completion:(void (^)(void))completion;
 @end

@@ -8,6 +8,7 @@
 
 #import "MVMovieListViewController.h"
 #import "MVMovieTableViewCell.h"
+#import "MVFlowManager.h"
 
 @interface MVMovieListViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -16,16 +17,20 @@
 @implementation MVMovieListViewController
 NSString * const CELL_IDENTIFIER = @"MovieCell";
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:YES];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MVMovieTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER];
     
     if(cell == nil)
     {
-        //not in viewdidLoad beacuse this class cannot access to tableview
+        //not added in viewdidLoad beacuse this class cannot access to tableview
         [tableView registerNib:[self createMovieTableCellNib] forCellReuseIdentifier:CELL_IDENTIFIER];
-        
-         cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER];
+        cell = [tableView dequeueReusableCellWithIdentifier:CELL_IDENTIFIER];
     }
     
     if (self.movies)
@@ -47,4 +52,9 @@ NSString * const CELL_IDENTIFIER = @"MovieCell";
     return [UINib nibWithNibName:nibIdentifier bundle:[NSBundle mainBundle]];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+     MVMovieTableViewCell *cell = (MVMovieTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [[MVFlowManager sharedInstance] showMovieDetails:cell.movie];
+}
 @end

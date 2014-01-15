@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MVMovie.h"
 @interface MVMovieTableViewCell : UITableViewCell
+@property(nonatomic, strong) MVMovie * movie;
 -(void)SetMovie:(MVMovie *)movie;
+@property (weak, nonatomic) IBOutlet UIButton *btn;
 @end

@@ -23,8 +23,6 @@
     if ([self.appData.faceBookMgr isUserConnected])
     {
         NSLog(@"connected");
-       //TODO:DELETE
-       // [self performSegueWithIdentifier: @"SegueToMain" sender: self];
     }
     else
     {
@@ -60,12 +58,20 @@
 - (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView
 {
     NSLog(@"%@", @"login");
-    //TODO: DELETE [self performSegueWithIdentifier: @"SegueToMain" sender: self];
-    //TODO: DELETE[self dismissViewControllerAnimated:YES completion:nil];
     
-    UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
-    UIViewController *mainController = [storyboard instantiateViewControllerWithIdentifier:@"mainScreen"];
-    [self.navigationController pushViewController:mainController animated:YES];
+    if (self.isRoot)
+    {
+        UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+        UIViewController *mainController = [storyboard instantiateViewControllerWithIdentifier:@"mainScreen"];
+
+        [self presentViewController:mainController animated:YES completion:nil];
+    }
+    else
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    [self removeFromParentViewController];
+    
 }
 
 - (void)loginViewShowingLoggedOutUser:(FBLoginView *)loginView

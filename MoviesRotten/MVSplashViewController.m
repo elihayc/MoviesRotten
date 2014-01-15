@@ -50,23 +50,19 @@
                      } completion:^(BOOL finished){
                          if (finished)
                          {
-                             //TODO: DELETE
-                             //    NSString * segueName = nil;
-                             //    segueName = [self.appData.faceBookMgr isUserConnected] ? SEG_SPLASH_TO_MAIN : SEG_SPLASH_TO_LOGIN;
-                             
-//  TODO:DELETE                [self performSegueWithIdentifier:SEG_SPLASH_TO_MAIN sender:self];
-
-                             UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
-                             UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"loginScreen"];//TODO loginScreen as const
-                             
-                             
-                             
-                             [self.navigationController pushViewController:loginController animated:NO];
                              if ([self.appData.faceBookMgr isUserConnected])
                              {
-                                 UIViewController *mainController = [storyboard instantiateViewControllerWithIdentifier:@"mainScreen"];//TODO mainScreen as const
-                                 [self.navigationController pushViewController:mainController animated:YES];
+                                //TODO: add to FlowManager
+                                UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
+                                UIViewController *mainController = [storyboard instantiateViewControllerWithIdentifier:@"mainScreen"];//TODO mainScreen as const
+
+                                [self presentViewController:mainController animated:YES completion:nil];
                              }
+                             else
+                             {
+                                 [self showLoginScreen:YES];
+                             }
+                             [self removeFromParentViewController];
                          }
                      }];
 }

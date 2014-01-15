@@ -34,7 +34,7 @@
 - (IBAction)logoutClick:(UIButton *)sender
 {
     [self.appData.faceBookMgr logout];
-    [self showLoginScreen];
+    [self showLoginScreen:NO];
     
 }
 

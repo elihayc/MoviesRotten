@@ -17,29 +17,28 @@
 {
     return [MVAppData sharedInstance];
 }
-//TODO:DELETE
-//
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-//{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {
-//        // Custom initialization
-//    }
-//    return self;
-//}
-//
-- (void)viewDidLoad
+
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+    [super viewDidAppear:animated];
+    [MVFlowManager.sharedInstance setCurrentViewController:self];
+
 }
 
--(void)showLoginScreen
+-(void)showLoginScreen:(BOOL)asRoot
 {
     //TODO:DELETE
 //    UIStoryboard *storyboard = [UIApplication sharedApplication].delegate.window.rootViewController.storyboard;
 //    UIViewController *loginController = [storyboard instantiateViewControllerWithIdentifier:@"loginScreen"];
 //    [self presentViewController:loginController animated:YES completion:nil];
-    [self.navigationController popViewControllerAnimated:YES];
+//
+//    [self removeFromParentViewController];
+
+    
+    //    [self.navigationController popViewControllerAnimated:YES];
+    
+    [MVFlowManager.sharedInstance showLoginScreenAsRoot:asRoot];
+    
 }
 
 

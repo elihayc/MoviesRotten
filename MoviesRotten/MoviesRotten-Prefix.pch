@@ -13,10 +13,11 @@
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
-    #import <RestKit/RestKit.h>
+    #import <RestKit/RestKit.h> //TODO: encupsolate and remove from here
     #import "MVAppData.h"
     #import "MVNotifcationsNames.h"
-    #import "MVSegueNames.h"
+    #import "MVViewsIdentifiers.h"
+
 #endif
 
 
