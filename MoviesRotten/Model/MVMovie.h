@@ -17,19 +17,21 @@
 @property (nonatomic) NSInteger year;
 @property (nonatomic, strong) NSString * synopsis;
 
+
 //Not implementded for save / or for mapping from rest
 @property (nonatomic, strong) NSMutableArray * genres;
 
 @property (nonatomic, strong) NSString * mpaaRating;
 @property (nonatomic) NSInteger runtime;
 @property (nonatomic, strong) NSString * criticsConsensus;
-@property (nonatomic, strong) NSMutableArray * ratings; // key value pairs
+@property (nonatomic, strong) NSDictionary * ratings;
 
-@property (nonatomic, strong) NSArray * posters; // key value pairs (key:name, value:imgaeUrl)
-@property (nonatomic, strong) NSMutableArray * abridgedCast;
-@property (nonatomic, strong) NSArray * abridgedDirectors; // key value pairs
+@property (nonatomic, strong) NSDictionary * posters; //(key:name, value:imgaeUrl)
+@property (nonatomic, strong) NSDictionary * links;
+@property (nonatomic, strong) NSArray * abridgedCast;
+@property (nonatomic, strong) NSDictionary * abridgedDirectors;
 @property (nonatomic, strong) NSString * studio;
-@property (nonatomic, strong) NSMutableArray * alternateIds; // key value pairs
-@property (nonatomic, strong) NSMutableArray * links; // key value pairs
+@property (nonatomic, strong) NSDictionary * alternateIds;
+
 
 @end

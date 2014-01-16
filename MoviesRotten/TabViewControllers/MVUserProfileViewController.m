@@ -39,6 +39,8 @@ NSString * const USER_CELL_IDENTIFIER = @"MovieCell";
 {
     [super viewWillAppear:animated];
     
+    [self.navigationController setNavigationBarHidden:YES];
+    
     [self.tableHeaderView setUserDetails:self.appData.user];
     [self.favoriteMoviesTable reloadData];
 }
@@ -63,6 +65,12 @@ NSString * const USER_CELL_IDENTIFIER = @"MovieCell";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.appData.user.favoriteMovies.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MVMovieTableViewCell *cell = (MVMovieTableViewCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [[MVFlowManager sharedInstance] showMovieDetails:cell.movie];
 }
 
 -(void)loadtableHeaderFromNib

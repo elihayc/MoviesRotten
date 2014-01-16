@@ -11,7 +11,7 @@
 @interface MVMovieReview : NSObject
 
 @property (nonatomic, strong) NSString * critic;
-@property (nonatomic, strong) NSDate * date;
+@property (nonatomic, strong) NSString * date;
 @property (nonatomic, strong) NSString * freshness;
 @property (nonatomic, strong) NSString * publication;
 @property (nonatomic, strong) NSString * quote;

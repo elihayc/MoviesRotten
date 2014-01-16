@@ -39,7 +39,7 @@
     [self.view addSubview:loginView];
     loginView.delegate = self;
     loginView.frame = CGRectOffset(loginView.frame, 50, 50);
-    loginView.readPermissions = @[@"basic_info",@"email",@"user_likes"];
+    loginView.readPermissions = @[@"basic_info", @"email",@"user_likes"];
 }
 
 
