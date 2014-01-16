@@ -11,10 +11,17 @@
 @interface MVMovieDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *movieName;
 @property (weak, nonatomic) IBOutlet UIButton *favoriteBtn;
-
+@property (nonatomic) BOOL isFavorite;
 @end
 
 @implementation MVMovieDetailViewController
+
+- (void)setIsFavorite:(BOOL)isFavorite
+{
+    _isFavorite = isFavorite;
+    NSString* iconImageName = isFavorite ? @"favoriteOn" : @"favoriteOff";
+    [self.favoriteBtn setBackgroundImage:[UIImage imageNamed:iconImageName] forState:UIControlStateNormal];
+}
 
 - (void)viewDidLoad
 {
@@ -22,12 +29,8 @@
 	   
     self.movieName.text = [NSString stringWithFormat:@"%@ (%d)", self.movie.title, self.movie.year];
     
-   //TODO: support favorite image
-//    [self.favoriteBtn setImage:[UIImage imageNamed:@"favoriteOff"] forState:UIControlStateNormal];
-//    [self.favoriteBtn setImage:[UIImage imageNamed:@"favoriteOn"] forState:UIControlStateSelected];
-    
     //containObject is using isEqual method.
-    self.favoriteBtn.selected = [self.appData.user.favoriteMovies containsObject:self.movie];
+    self.isFavorite = [self.appData.user.favoriteMovies containsObject:self.movie];
 
 }
 
@@ -40,8 +43,8 @@
 
 - (IBAction)favoriteBtnClick:(UIButton *)sender
 {
-    self.favoriteBtn.selected = !sender.selected;
-    if(sender.selected)
+    self.isFavorite = !self.isFavorite;
+    if(self.isFavorite)
     {
         [self.appData.user.favoriteMovies addObject:self.movie];
     }
